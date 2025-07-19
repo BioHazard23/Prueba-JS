@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script type="module" src="../js/router.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Iniciar sesión</h2>
+    <input type="email" id="email" placeholder="Correo" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <button id="loginBtn">Entrar</button>
+    <p>¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
+  </div>
+
+  <script type="module">
+    import { login } from '../js/auth.js';
+    const btn = document.getElementById("loginBtn");
+    btn.addEventListener("click", async () => {
+      try {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        await login(email, password);
+        location.href = "/views/dashboard.html";
+      } catch (e) {
+        alert(e.message);
+      }
+    });
+  </script>
+</body>
+</html>

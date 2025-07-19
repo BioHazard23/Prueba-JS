@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crear Evento</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script type="module" src="../js/router.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Crear nuevo evento</h2>
+    <input type="text" id="title" placeholder="Título del evento" />
+    <input type="text" id="location" placeholder="Lugar" />
+    <input type="number" id="capacity" placeholder="Capacidad" />
+    <button id="saveEvent">Guardar</button>
+    <a href="dashboard.html">Volver</a>
+  </div>
+  <script type="module">
+    document.getElementById("saveEvent").addEventListener("click", async () => {
+      const event = {
+        title: document.getElementById("title").value,
+        location: document.getElementById("location").value,
+        capacity: parseInt(document.getElementById("capacity").value),
+        attendees: []
+      };
+      await fetch('http://localhost:3001/events', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(event)
+      });
+      location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "fullName": "Admin User",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "email": "juan@gmail.com",
+      "password": "juan1",
+      "role": "visitor",
+      "id": "N3R4PzK"
+    }
+  ],
+  "events": [
+    {
+      "id": "2",
+      "name": "Taller de Diseño UX/UI",
+      "description": "Aprende los fundamentos del diseño de experiencia de usuario.",
+      "date": "2025-11-05",
+      "capacity": 25,
+      "attendees": [
+        "N3R4PzK"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Meetup de JavaScript",
+      "description": "Un encuentro para desarrolladores de JavaScript para compartir conocimientos.",
+      "date": "2025-11-15",
+      "capacity": 2,
+      "attendees": [
+        "user2_id",
+        "user3_id"
+      ]
+    },
+    {
+      "title": "daWE",
+      "location": "sdas",
+      "capacity": 25,
+      "attendees": [],
+      "id": "qd9z4tz"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script type="module" src="../js/router.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Registrarse</h2>
+    <input type="email" id="email" placeholder="Correo" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <select id="role">
+      <option value="visitor">Visitante</option>
+      <option value="admin">Administrador</option>
+    </select>
+    <button id="registerBtn">Registrarse</button>
+    <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+  </div>
+
+  <script type="module">
+    import { register } from '../js/auth.js';
+    document.getElementById("registerBtn").addEventListener("click", async () => {
+      try {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const role = document.getElementById("role").value;
+        await register(email, password, role);
+        alert("Registro exitoso");
+        location.href = "login.html";
+      } catch (e) {
+        alert(e.message);
+      }
+    });
+  </script>
+</body>
+</html>

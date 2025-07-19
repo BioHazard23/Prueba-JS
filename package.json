@@ -1,0 +1,16 @@
+{
+  "name": "modulo3",
+  "version": "1.0.0",
+  "description": "Esta es una Single Page Application (SPA) para gestionar eventos, desarrollada como parte de una prueba técnica.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

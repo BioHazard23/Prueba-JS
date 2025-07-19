@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editar Evento</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script type="module" src="../js/router.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Editar evento</h2>
+    <input type="text" id="title" />
+    <input type="text" id="location" />
+    <input type="number" id="capacity" />
+    <button id="updateEvent">Actualizar</button>
+    <a href="dashboard.html">Volver</a>
+  </div>
+
+
+  
+  <script type="module">
+    const url = new URLSearchParams(window.location.search);
+    const id = url.get("id");
+    const res = await fetch(`http://localhost:3001/events/${id}`);
+    const event = await res.json();
+    document.getElementById("title").value = event.title;
+    document.getElementById("location").value = event.location;
+    document.getElementById("capacity").value = event.capacity;
+    document.getElementById("updateEvent").addEventListener("click", async () => {
+      const updated = {
+        ...event,
+        title: document.getElementById("title").value,
+        location: document.getElementById("location").value,
+        capacity: parseInt(document.getElementById("capacity").value)
+      };
+      await fetch(`http://localhost:3001/events/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(updated)
+      });
+      location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>
